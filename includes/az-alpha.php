@@ -1,4 +1,4 @@
-><?php 
+<?php 
 function alphaindex_save_alpha( $post_id ) {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 	return;

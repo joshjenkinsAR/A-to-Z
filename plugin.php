@@ -7,7 +7,7 @@ Author: Josh Jenkins and John Wilson Impson
 License: GPL
 Version: 1.0.1
 GitHub Plugin URI: https://github.com/joshjenkinsAR/A-to-Z
-GitHub Branch:    master
+GitHub Branch: master
 */
 
 /*** Include class and intialize metaboxes   ***/
