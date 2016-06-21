@@ -16,6 +16,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-post-type-metaboxes.php';
 $post_type_metaboxes = new Item_Post_Type_Metaboxes;
 $post_type_metaboxes->init();
 
+//require plugin_dir_path( __FILE__ ) . 'includes/class-related-items.php';
+require plugin_dir_path( __FILE__ ) . 'includes/az-alpha.php';
+require plugin_dir_path( __FILE__ ) . 'includes/az-shortcode.php';
+
 /*** Create custom post type for items   ***/
 
 add_action('init', 'az_register_items');
@@ -69,15 +73,15 @@ function az_register_department() {
 			'show_admin_column' => true,
 			'yarpp_support' => true,
 			'labels' => array (
-				'search_items' => 'College or Department',
+				'search_items' => 'Department',
 				'popular_items' => '',
-				'all_items' => '',
-				'parent_item' => '',
+				'all_items' => 'All Departments',
+				'parent_item' => 'Parent',
 				'parent_item_colon' => '',
-				'edit_item' => '',
-				'update_item' => '',
-				'add_new_item' => '',
-				'new_item_name' => '',
+				'edit_item' => 'Edit',
+				'update_item' => 'Update',
+				'add_new_item' => 'Add Department',
+				'new_item_name' => 'Department',
 				'separate_items_with_commas' => '',
 				'add_or_remove_items' => '',
 				'choose_from_most_used' => '',
@@ -99,16 +103,31 @@ function az_register_group() {
 			'labels' => array (
 				'search_items' => 'Group',
 				'popular_items' => '',
-				'all_items' => '',
-				'parent_item' => '',
+				'all_items' => 'All Groups',
+				'parent_item' => 'Parent Group',
 				'parent_item_colon' => '',
-				'edit_item' => '',
-				'update_item' => '',
-				'add_new_item' => '',
-				'new_item_name' => '',
+				'edit_item' => 'Edit',
+				'update_item' => 'Update',
+				'add_new_item' => 'Add Group',
+				'new_item_name' => 'Group',
 				'separate_items_with_commas' => '',
 				'add_or_remove_items' => '',
 				'choose_from_most_used' => '',
 			)
 	)); 
 }
+
+/*** Add hidden alphabetical index taxonomy ***/
+
+function alphaindex_alpha_tax() {
+	register_taxonomy( 'alpha',array (
+		0 => 'item',
+	),
+	array( 'hierarchical' => false,
+		'label' => 'Alpha',
+		'show_ui' => false,
+		'query_var' => true,
+		'show_admin_column' => false,
+	) );
+}
+add_action('init', 'alphaindex_alpha_tax');

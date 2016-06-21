@@ -34,7 +34,8 @@ class Item_Post_Type_Metaboxes {
 		$link = ! isset( $meta['item_link'][0] ) ? '' : $meta['item_link'][0];
 		$related = ! isset( $meta['related_items'][0] ) ? '' : $meta['related_items'][0];
 		$synonyms = ! isset( $meta['item_synonyms'][0] ) ? '' : $meta['item_synonyms'][0];
-		wp_nonce_field( basename( __FILE__ ), 'item_fields' ); ?>
+		wp_nonce_field( basename( __FILE__ ), 'item_fields' );
+		?>
 
 		<table class="form-table">
 
@@ -43,9 +44,10 @@ class Item_Post_Type_Metaboxes {
 					<label for="item_description"><?php _e( 'Description', 'item-post-type' ); ?>
 					</label>
 				</td>
-				<td colspan="4">
-					<input type="text" name="item_description" class="regular-text" value="<?php echo $description; ?>">
+				<td colspan="10">
+					<textarea name="item_description" id="item_description" rows="5" cols="20" style="width:99%"><?php echo $description; ?></textarea>
 					<p class="description"><?php _e( 'Brief text description here', 'item-post-type' ); ?></p>
+  
 				</td>
 			</tr>
 			<tr>
@@ -75,7 +77,30 @@ class Item_Post_Type_Metaboxes {
 					</label>
 				</td>
 				<td colspan="4">
-					<input type="text" name="related_items" class="regular-text" value="<?php echo $related; ?>">
+				<?php function get_items()
+{
+    $args = array(
+    'numberposts' => -1,
+    'post_type' => 'items'
+    );
+
+    $items = get_posts($args);
+
+    $options = array();
+    foreach($items as $i)
+        $options[$i->ID] = array(
+            'label' => $i->post_title,
+            'value' => $i->ID
+        );
+	return $options; 
+	
+	foreach ($field['options'] as $option) {  
+    echo '<input type="checkbox" value="'.$option['value'].'" name="related_items" id="'.$option['value'].'"',$meta && in_array($option['value'], $meta) ? ' checked="checked"' : '',' /> 
+            <label for="'.$option['value'].'">'.$option['label'].'</label><br />';  
+}  
+
+}?>
+					<!--- <input type="text" name="related_items" class="regular-text" value=""> --->
 				</td>
 			</tr>
 
