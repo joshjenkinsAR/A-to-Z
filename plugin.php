@@ -1,0 +1,109 @@
+<?php 
+/*
+Plugin Name: A to Z Index
+Description: Creates an Index system with a custom item post type and shortcodes for display
+Plugin URI: https://github.com/joshjenkinsAR/A-to-Z
+Author: Josh Jenkins and John Wilson Impson
+License: GPL
+Version: 1.0
+GitHub Plugin URI: https://github.com/joshjenkinsAR/A-to-Z
+GitHub Branch:    master
+*/
+
+
+/*** Create custom post type for items   ***/
+
+add_action('init', 'az_register_items');
+
+function az_register_items() {
+register_post_type('item', array(
+		'label' => 'Item',
+		'description' => 'Items for inclusion in A to Z index',
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'capability_type' => 'post',
+		'map_meta_cap' => true,
+		'hierarchical' => false,
+		'rewrite' => array('slug' => 'item', 'with_front' => true),
+		'query_var' => true,
+		'has_archive' => false,
+		'supports' => array('title','editor','excerpt','custom-fields','revisions','thumbnail','page-attributes','post-formats','genesis-seo', 'genesis-cpt-archives-settings' ),
+		///***** Come back to this ****///'taxonomies' => array('college_department','delivery','skills','types'),
+		'yarpp_support' => true,
+			'labels' => array (
+			  'name' => 'Items',
+			  'singular_name' => 'Item',
+			  'menu_name' => 'Index',
+			  'add_new' => 'Add Item',
+			  'add_new_item' => 'Add New Item',
+			  'edit' => 'Edit',
+			  'edit_item' => 'Edit Item',
+			  'new_item' => 'New Item',
+			  'view' => 'View Item',
+			  'view_item' => 'View Item',
+			  'search_items' => 'Search Items',
+			  'not_found' => 'No Items Found',
+			  'not_found_in_trash' => 'No Items Found in Trash',
+			  'parent' => 'Parent Item',
+			)
+		)); 
+}
+
+/*** Create taxonomies for items ***/
+
+add_action('init', 'az_register_department');
+function az_register_department() {
+	register_taxonomy( 'department',array (
+		0 => 'item',
+	),
+		array( 'hierarchical' => true,
+			'label' => 'Departments',
+			'show_ui' => true,
+			'query_var' => true,
+			'show_admin_column' => true,
+			'yarpp_support' => true,
+			'labels' => array (
+				'search_items' => 'College or Department',
+				'popular_items' => '',
+				'all_items' => '',
+				'parent_item' => '',
+				'parent_item_colon' => '',
+				'edit_item' => '',
+				'update_item' => '',
+				'add_new_item' => '',
+				'new_item_name' => '',
+				'separate_items_with_commas' => '',
+				'add_or_remove_items' => '',
+				'choose_from_most_used' => '',
+			)
+	)); 
+}
+
+add_action('init', 'az_register_group');
+function az_register_group() {
+	register_taxonomy( 'group',array (
+		0 => 'item',
+	),
+		array( 'hierarchical' => false,
+			'label' => 'Groups',
+			'show_ui' => true,
+			'query_var' => true,
+			'show_admin_column' => true,
+			'yarpp_support' => true,
+			'labels' => array (
+				'search_items' => 'Group',
+				'popular_items' => '',
+				'all_items' => '',
+				'parent_item' => '',
+				'parent_item_colon' => '',
+				'edit_item' => '',
+				'update_item' => '',
+				'add_new_item' => '',
+				'new_item_name' => '',
+				'separate_items_with_commas' => '',
+				'add_or_remove_items' => '',
+				'choose_from_most_used' => '',
+			)
+	)); 
+}
