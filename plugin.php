@@ -29,7 +29,7 @@ register_post_type('item', array(
 		'query_var' => true,
 		'has_archive' => false,
 		'supports' => array('title','editor','excerpt','custom-fields','revisions','thumbnail','page-attributes','post-formats','genesis-seo', 'genesis-cpt-archives-settings' ),
-		///***** Come back to this ****///'taxonomies' => array('college_department','delivery','skills','types'),
+		'taxonomies' => array('department','group'),
 		'yarpp_support' => true,
 			'labels' => array (
 			  'name' => 'Items',
