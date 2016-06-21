@@ -5,11 +5,16 @@ Description: Creates an Index system with a custom item post type and shortcodes
 Plugin URI: https://github.com/joshjenkinsAR/A-to-Z
 Author: Josh Jenkins and John Wilson Impson
 License: GPL
-Version: 1.0
+Version: 1.0.1
 GitHub Plugin URI: https://github.com/joshjenkinsAR/A-to-Z
 GitHub Branch:    master
 */
 
+/*** Include class and intialize metaboxes   ***/
+require plugin_dir_path( __FILE__ ) . 'includes/class-post-type-metaboxes.php';
+
+$post_type_metaboxes = new Item_Post_Type_Metaboxes;
+$post_type_metaboxes->init();
 
 /*** Create custom post type for items   ***/
 
@@ -19,7 +24,7 @@ function az_register_items() {
 register_post_type('item', array(
 		'label' => 'Item',
 		'description' => 'Items for inclusion in A to Z index',
-		'public' => true,
+		'public' => false,
 		'show_ui' => true,
 		'show_in_menu' => true,
 		'capability_type' => 'post',
@@ -28,7 +33,7 @@ register_post_type('item', array(
 		'rewrite' => array('slug' => 'item', 'with_front' => true),
 		'query_var' => true,
 		'has_archive' => false,
-		'supports' => array('title','editor','excerpt','custom-fields','revisions','thumbnail','page-attributes','post-formats','genesis-seo', 'genesis-cpt-archives-settings' ),
+		'supports' => array('title','revisions','thumbnail','genesis-seo', 'genesis-cpt-archives-settings' ),
 		'taxonomies' => array('department','group'),
 		'yarpp_support' => true,
 			'labels' => array (
@@ -85,7 +90,7 @@ function az_register_group() {
 	register_taxonomy( 'group',array (
 		0 => 'item',
 	),
-		array( 'hierarchical' => false,
+		array( 'hierarchical' => true,
 			'label' => 'Groups',
 			'show_ui' => true,
 			'query_var' => true,
