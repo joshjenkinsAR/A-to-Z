@@ -48,19 +48,21 @@ $terms = get_terms( 'alpha' );
 	$query = new WP_Query( $options );
     // run the loop based on the query
     if ( $query->have_posts() ) { 
-			echo '<div class="'. $term->name .'"><div id="letter-heading">' . $term->name .'</div>';
-			while ( $query->have_posts() ) : $query->the_post();
-			 ?>
-			<li class="plain-list switch-view"><a href="<?php the_permalink();?>" class="item-title"><?php the_title(); ?></a>
-				<div class="hidden-card">
-					<div class="item-description"><?php echo get_post_meta( get_the_ID(), 'item_description', true ); ?></div>
-					<div class="item-location"><?php echo get_post_meta( get_the_ID(), 'item_location', true ); ?></div>
-					<div class="item-link"><?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?></div>
-				</div>
-			</li>
+			echo '<div class="'. $term->name .'">
+				<div id="letter-heading">' . $term->name .'</div>';
+				while ( $query->have_posts() ) : $query->the_post();
+				 ?>
+				<li class="plain-list switch-view">
+					<a href="<?php the_permalink();?>" class="item-title"><?php the_title(); ?></a>
+					<div class="hidden-card">
+						<div class="item-description"><?php echo get_post_meta( get_the_ID(), 'item_description', true ); ?></div>
+						<div class="item-location"><?php echo get_post_meta( get_the_ID(), 'item_location', true ); ?></div>
+						<div class="item-link"><?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?></div>
+					</div>
+				</li>
 			
-            <?php 
-			endwhile;
+           		<?php 
+				endwhile;
 			echo '</div>';
 			}  
     }
