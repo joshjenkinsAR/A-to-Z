@@ -28,7 +28,7 @@ $terms = get_terms( 'alpha' );
 						),
 			);	
 			
-			/* Just a test comment by Wilson in az-shortcode. */
+			
 			
 	$query = new WP_Query( $options );
     // run the loop based on the query
