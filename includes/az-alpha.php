@@ -17,9 +17,9 @@ function alphaindex_save_alpha( $post_id ) {
 		// Get the title of the post
 		$title = strtolower( $_POST['post_title'] );
 		
-		// The next few lines remove A, An, or The from the start of the title
+		// The next few lines remove The from the start of the title
 		$splitTitle = explode(" ", $title);
-		$blacklist = array("an","a","the");
+		$blacklist = array("the");
 		$splitTitle[0] = str_replace($blacklist,"",strtolower($splitTitle[0]));
 		$title = implode(" ", $splitTitle);
 		
