@@ -2,7 +2,8 @@
 function az_shortcode($atts){
 
 //Call the stylesheet if the shortcode is present
-//wp_register_script( 'proglist-filter', plugins_url('list.min.js', __FILE__), array('jquery'), true );
+wp_register_style( 'shortcode-style', plugins_url('style.css', __FILE__));
+wp_enqueue_style( 'shortcode-style' );
 //wp_register_script( 'proglist-init', plugins_url('init.js', __FILE__), array('dirswitch-filter'), true );
 
 $terms = get_terms( 'alpha' );
@@ -32,13 +33,17 @@ $terms = get_terms( 'alpha' );
 			
 			Basic structure outline for letter section.
 			
-			<div class="letter-heading">
-				<div class="letter-holder">
-					<h2>A</h2>
+			<div class="b">
+				<div class="letter-holder">b</div>
+				<div class="item-holder">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
 				</div>
-				<ul class="items-list">
-					<li></li>
-				</ul>
 			</div>
 			
 			
@@ -49,20 +54,25 @@ $terms = get_terms( 'alpha' );
     // run the loop based on the query
     if ( $query->have_posts() ) { 
 			echo '<div class="'. $term->name .'">
-				<div id="letter-heading">' . $term->name .'</div>';
+				<div id="letter-holder">' . $term->name .'</div>';
+			echo '<div class="item-holder">';
+			echo '<ul class="item-list">';
 				while ( $query->have_posts() ) : $query->the_post();
 				 ?>
-				<li class="plain-list switch-view">
-					<a href="<?php the_permalink();?>" class="item-title"><?php the_title(); ?></a>
-					<div class="hidden-card">
-						<div class="item-description"><?php echo get_post_meta( get_the_ID(), 'item_description', true ); ?></div>
-						<div class="item-location"><?php echo get_post_meta( get_the_ID(), 'item_location', true ); ?></div>
-						<div class="item-link"><?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?></div>
-					</div>
-				</li>
-			
+				 
+					<li class="item">
+						<a href="<?php the_permalink();?>" class="item-title"><?php the_title(); ?></a>
+						<div class="hidden-card">
+							<div class="item-description"><?php echo get_post_meta( get_the_ID(), 'item_description', true ); ?></div>
+							<div class="item-location"><?php echo get_post_meta( get_the_ID(), 'item_location', true ); ?></div>
+							<div class="item-link"><?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?></div>
+						</div>
+					</li>
+				
            		<?php 
 				endwhile;
+				echo '</ul>';
+				echo '</div>';
 			echo '</div>';
 			}  
     }

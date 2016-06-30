@@ -1,0 +1,29 @@
+
+.b {
+	margin: 50px 0px 50px 0px;
+}
+
+#letter-holder {
+	float:left;
+	width 50%;
+	font-size: 6em;
+	
+}
+
+.item-holder {
+	float: right;
+}
+
+.item-list {
+	-webkit-column-count: 3;
+	-moz-column-count: 3;
+	column-count: 3;
+}
+
+.item {
+	
+}
+
+.item-title {
+	margin: 0px 0px 10px 0px;
+}
