@@ -53,13 +53,13 @@ $terms = get_terms( 'alpha' );
 	$query = new WP_Query( $options );
     // run the loop based on the query
     if ( $query->have_posts() ) { 
-			echo '<div class="'. $term->name .'">
+			echo '<div class="'. $term->name .' letter-section ">
 				<div class="letter-holder">' . $term->name .'</div>';
 			echo '<div class="item-holder">';
 			echo '<ul class="item-list">';
 				while ( $query->have_posts() ) : $query->the_post();
 				 ?>
-				 <!-- This ul allows the items to given the 'page-break-inside: avoid' property to
+				 <!-- This ul below allows the items to given the 'page-break-inside: avoid' property to
 				 	keep the items from flowing over into the next column. -->
 				 <ul class="individual-item-list">
 					<li class="item">
