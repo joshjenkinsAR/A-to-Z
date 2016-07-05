@@ -67,24 +67,26 @@ ul.sub-list {
     width: 29%;
     float: left;
 }
-
+.wow {
+	visibility: hidden;
 }
-.item {	
+#az-index ul li.item {	
 	margin-bottom: 15px;
+	list-style-position: inside;
 }
 
 .item-title {
 	padding: 0px;
 }
-
 .hidden-card {
-	display:none;
+	height: 0px;
 	margin-top: 5px;
-	padding: 10px;
+	/* padding: 10px; */
 	border: rgba(162, 162, 162, 0.36);
-    border-style: solid;
-    z-index: 999;
-    
+	border-style: solid;
+	z-index: 999;
+	opacity: 0;
+	transition: all 1.5s ease;
 }
 
 .item-description {
@@ -99,6 +101,8 @@ ul.sub-list {
 	transition: .5s;
 	display:block;
 	position: relative;
+	opacity: 1;
+	height: auto;
+	transition: all 1.5s ease;
 	
 }
-

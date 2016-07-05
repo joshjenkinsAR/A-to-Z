@@ -2,7 +2,10 @@
 function az_scripts_styles() {
     wp_register_style( 'shortcode-style', plugins_url('style.css', __FILE__));
 	wp_enqueue_style( 'shortcode-style' );
-	wp_enqueue_script( 'az-script', plugins_url('script.js', __FILE__), array('jquery'), false );
+	wp_enqueue_script( 'az-script', plugins_url('script.js', __FILE__), array('jquery', 'wow-js'), false );
+	wp_enqueue_script('wow-js', '/wp-content/themes/sau-cce/js/wow.min.js', false);
+	wp_register_style( 'animate-css', '/wp-content/themes/sau-cce/js/animate.css');
+	wp_enqueue_style( 'animate-css' );
 }
 add_action( 'wp_enqueue_scripts', 'az_scripts_styles' );
 
@@ -42,7 +45,7 @@ $terms = get_terms( 'alpha' );
 			<div class="az-search"><form id="live-search" class="styled" action="" method="post">
 			<fieldset><input id="filter" class="text-input" type="text" value="" placeholder="Type here and filter results below..." /></fieldset>
 			</form></div>
-		   <div id="az-index">
+		   <div id="az-index" class="wow fadeInUp">
 			<?php 	
 			foreach ( $terms as $term ) {
 			
