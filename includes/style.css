@@ -78,12 +78,13 @@ ul.sub-list {
 }
 
 .hidden-card {
-	/*display:none;*/
+	display:none;
 	margin-top: 5px;
 	padding: 10px;
 	border: rgba(162, 162, 162, 0.36);
     border-style: solid;
     z-index: 999;
+    
 }
 
 .item-description {
@@ -95,7 +96,9 @@ ul.sub-list {
 }
 
 .item:hover > .hidden-card {
+	transition: .5s;
 	display:block;
 	position: relative;
+	
 }
 
