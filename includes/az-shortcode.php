@@ -59,25 +59,7 @@ $terms = get_terms( 'alpha' );
 						),
 			);	
 			
-			/*
-			
-			Basic structure outline for letter section.
-			
-			<div class="b">
-				<div class="letter-holder">b</div>
-				<div class="item-holder">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</div>
-			</div>
-			
-			
-			*/
+	
 			
 			
 	$query = new WP_Query( $options );
