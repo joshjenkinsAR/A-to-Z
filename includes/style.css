@@ -72,11 +72,8 @@ ul.sub-list {
 }
 #az-index ul li.item {	
 	margin-bottom: 15px;
-<<<<<<< HEAD
 	list-style-position: inside;
-=======
 	display: inline-block;
->>>>>>> origin/master
 }
 
 .item-title {
