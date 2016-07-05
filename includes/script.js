@@ -15,7 +15,7 @@ jQuery(document).ready(function(){
         });
  
        // var numberItems = count;
-        //jQuery("#filter-count").text("Number of xyz = "+count);
+        //jQuery("#filter-count").text("Number of xyz = "+count); 
     });
 });
 
