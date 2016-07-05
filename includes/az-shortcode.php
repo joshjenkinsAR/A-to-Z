@@ -1,14 +1,16 @@
 <?php
-function az_shortcode($atts){
+function az_scripts_styles() {
+    wp_register_style( 'shortcode-style', plugins_url('style.css', __FILE__));
+	wp_enqueue_style( 'shortcode-style' );
+	wp_enqueue_script( 'az-script', plugins_url('script.js', __FILE__), false );
+}
+add_action( 'wp_enqueue_scripts', 'az_scripts_styles' );
 
-//Call the stylesheet if the shortcode is present
-wp_register_style( 'shortcode-style', plugins_url('style.css', __FILE__));
-wp_enqueue_style( 'shortcode-style' );
-wp_enqueue_script( 'proglist-script', plugins_url('script.js', __FILE__), true );
+function az_shortcode($atts){
 
 $terms = get_terms( 'alpha' );
  ?>
-       <div id="az-index">
+       
 	   <div class="index-menu">
 		<ul id="atoz">
 			<li class="letter"><a href="#letter-a">A</a></li>
@@ -40,7 +42,7 @@ $terms = get_terms( 'alpha' );
 			<div class="az-search"><form id="live-search" class="styled" action="" method="post">
 			<fieldset><input id="filter" class="text-input" type="text" value="" placeholder="Type here and filter results below..." /></fieldset>
 			</form></div>
-		   
+		   <div id="az-index">
 			<?php 	
 			foreach ( $terms as $term ) {
 			
@@ -89,9 +91,6 @@ $terms = get_terms( 'alpha' );
 			echo '<ul class="item-list">';
 				while ( $query->have_posts() ) : $query->the_post();
 				 ?>
-				 <!-- This ul below allows the items to given the 'page-break-inside: avoid' property to
-				 	keep the items from flowing over into the next column. -->
-				 <ul class="individual-item-list">
 					<li class="item">
 						<a href="<?php the_permalink();?>" class="item-title"><?php the_title(); ?></a>
 						<div class="hidden-card">
@@ -100,7 +99,6 @@ $terms = get_terms( 'alpha' );
 							<div class="item-link"><?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?></div>
 						</div>
 					</li>
-				</ul>
            		<?php 
 				endwhile;
 				echo '</ul>';
