@@ -79,7 +79,9 @@ $terms = get_terms( 'alpha' );
 						<div class="hidden-card">
 							<div class="item-description"><?php echo get_post_meta( get_the_ID(), 'item_description', true ); ?></div>
 							<div class="item-location"><?php echo get_post_meta( get_the_ID(), 'item_location', true ); ?></div>
-							<div class="item-link"><?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?></div>
+							<div class="item-link">
+								<a><?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?></a>
+							</div>
 						</div>
 					</li>
 				</ul>
