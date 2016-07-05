@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 Plugin Name: A to Z Index
 Description: Creates an Index system with a custom item post type and shortcodes for display
@@ -56,7 +56,7 @@ register_post_type('item', array(
 			  'not_found_in_trash' => 'No Items Found in Trash',
 			  'parent' => 'Parent Item',
 			)
-		)); 
+		));
 }
 
 /*** Create taxonomies for items ***/
@@ -86,7 +86,7 @@ function az_register_department() {
 				'add_or_remove_items' => '',
 				'choose_from_most_used' => '',
 			)
-	)); 
+	));
 }
 
 add_action('init', 'az_register_group');
@@ -114,7 +114,7 @@ function az_register_group() {
 				'add_or_remove_items' => '',
 				'choose_from_most_used' => '',
 			)
-	)); 
+	));
 }
 
 /*** Add hidden alphabetical index taxonomy ***/
