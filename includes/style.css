@@ -43,7 +43,7 @@ ul#atoz li {
 
 .letter-section {
 	margin: 15px 0px 50px 0px;
-	padding: 50px;
+	padding: 25px;
 }
 
 
@@ -58,7 +58,7 @@ ul#atoz li {
 }
 
 .item-holder {
-	padding-top: 10px;
+	padding-top: 30px;
 	display: inline-block;
 	width: 90%;
 }
@@ -67,6 +67,7 @@ ul#atoz li {
 	-webkit-column-count: 3;
 	-moz-column-count: 3;
 	column-count: 3;
+	
 }
 
 .individual-item-list {
@@ -75,11 +76,11 @@ ul#atoz li {
     break-inside: avoid-column;         /* IE 11 */
     display:table;                      /* Actually FF 20+ */
     
-    padding: 10px;
+    
 }
 
 .item {
-	padding: 10px 0px 10px 0px;
+	
 	margin-bottom: 15px;
 }
 
@@ -88,7 +89,12 @@ ul#atoz li {
 }
 
 .hidden-card {
+	/*display:none;*/
 	margin-top: 5px;
+	padding: 10px;
+	border: rgba(162, 162, 162, 0.36);
+    border-style: solid;
+    z-index: 999;
 }
 
 .item-description {
@@ -97,5 +103,10 @@ ul#atoz li {
 
 .item-link {
 	margin-top: 5px;
+}
+
+.item:hover > .hidden-card {
+	display:block;
+	position: relative;
 }
 
