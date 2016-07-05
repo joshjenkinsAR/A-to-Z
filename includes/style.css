@@ -71,6 +71,7 @@ ul.sub-list {
 }
 .item {	
 	margin-bottom: 15px;
+	display: inline-block;
 }
 
 .item-title {
@@ -96,7 +97,7 @@ ul.sub-list {
 }
 
 .item:hover > .hidden-card {
-	transition: .5s;
+	
 	display:block;
 	position: relative;
 	
