@@ -2,7 +2,7 @@
 function az_scripts_styles() {
     wp_register_style( 'shortcode-style', plugins_url('style.css', __FILE__));
 	wp_enqueue_style( 'shortcode-style' );
-	wp_enqueue_script( 'az-script', plugins_url('script.js', __FILE__), false );
+	wp_enqueue_script( 'az-script', plugins_url('script.js', __FILE__), array('jquery'), false );
 }
 add_action( 'wp_enqueue_scripts', 'az_scripts_styles' );
 
