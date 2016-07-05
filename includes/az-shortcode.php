@@ -61,25 +61,7 @@ $terms = get_terms( 'alpha' );
 						),
 			);	
 			
-			/*
-			
-			Basic structure outline for letter section.
-			
-			<div class="b">
-				<div class="letter-holder">b</div>
-				<div class="item-holder">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</div>
-			</div>
-			
-			
-			*/
+	
 			
 			
 	$query = new WP_Query( $options );
@@ -96,7 +78,9 @@ $terms = get_terms( 'alpha' );
 						<div class="hidden-card">
 							<div class="item-description"><?php echo get_post_meta( get_the_ID(), 'item_description', true ); ?></div>
 							<div class="item-location"><?php echo get_post_meta( get_the_ID(), 'item_location', true ); ?></div>
-							<div class="item-link"><?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?></div>
+							<div class="item-link">
+								<a><?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?></a>
+							</div>
 						</div>
 					</li>
            		<?php 
