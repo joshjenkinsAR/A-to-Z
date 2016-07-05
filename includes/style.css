@@ -73,7 +73,6 @@ ul.sub-list {
 #az-index ul li.item {	
 	margin-bottom: 15px;
 	list-style-position: inside;
-	display: inline-block;
 }
 
 .item-title {
