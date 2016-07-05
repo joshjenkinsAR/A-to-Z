@@ -97,7 +97,7 @@ ul.sub-list {
 	margin-top: 5px;
 }
 
-.item:hover > .hidden-card {
+.item a:hover + .hidden-card {
 	
 	display:block;
 	position: relative;
