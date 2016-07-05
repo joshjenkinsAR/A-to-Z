@@ -4,12 +4,42 @@ function az_shortcode($atts){
 //Call the stylesheet if the shortcode is present
 wp_register_style( 'shortcode-style', plugins_url('style.css', __FILE__));
 wp_enqueue_style( 'shortcode-style' );
-//wp_register_script( 'proglist-init', plugins_url('init.js', __FILE__), array('dirswitch-filter'), true );
+wp_enqueue_script( 'proglist-script', plugins_url('script.js', __FILE__), true );
 
 $terms = get_terms( 'alpha' );
  ?>
        <div id="az-index">
-
+	   <div class="index-menu">
+		<ul id="atoz">
+			<li class="letter"><a href="#letter-a">A</a></li>
+			<li class="letter"><a href="#letter-b">B</a></li>
+			<li class="letter"><a href="#letter-c">C</a></li>
+			<li class="letter"><a href="#letter-d">D</a></li>
+			<li class="letter"><a href="#letter-e">E</a></li>
+			<li class="letter"><a href="#letter-f">F</a></li>
+			<li class="letter"><a href="#letter-g">G</a></li>
+			<li class="letter"><a href="#letter-h">H</a></li>
+			<li class="letter"><a href="#letter-i">I</a></li>
+			<li class="letter"><a href="#letter-j">J</a></li>
+			<li class="letter"><a href="#letter-k">K</a></li>
+			<li class="letter"><a href="#letter-l">L</a></li>
+			<li class="letter"><a href="#letter-m">M</a></li>
+			<li class="letter"><a href="#letter-n">N</a></li>
+			<li class="letter"><a href="#letter-o">O</a></li>
+			<li class="letter"><a href="#letter-p">P</a></li>
+			<li class="letter"><a href="#letter-r">R</a></li>
+			<li class="letter"><a href="#letter-s">S</a></li>
+			<li class="letter"><a href="#letter-t">T</a></li>
+			<li class="letter"><a href="#letter-u">U</a></li>
+			<li class="letter"><a href="#letter-v">V</a></li>
+			<li class="letter"><a href="#letter-w">W</a></li>
+			<li class="letter"><a href="#letter-y">Y</a></li>
+			<li class="letter"><a href="#letter-z">Z</a></li>
+		</ul>
+		</div>
+			<div class="az-search"><form id="live-search" class="styled" action="" method="post">
+			<fieldset><input id="filter" class="text-input" type="text" value="" placeholder="Type here and filter results below..." /></fieldset>
+			</form></div>
 		   
 			<?php 	
 			foreach ( $terms as $term ) {
@@ -53,7 +83,7 @@ $terms = get_terms( 'alpha' );
 	$query = new WP_Query( $options );
     // run the loop based on the query
     if ( $query->have_posts() ) { 
-			echo '<div class="'. $term->name .' letter-section ">
+			echo '<div id="letter-'. $term->name .'" class="'. $term->name .' letter-section ">
 				<div class="letter-holder">' . $term->name .'</div>';
 			echo '<div class="item-holder">';
 			echo '<ul class="item-list">';

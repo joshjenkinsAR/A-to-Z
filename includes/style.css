@@ -1,3 +1,45 @@
+/** Search and filter stuff **/
+.index-menu {
+    display: block;
+    float: none;
+    width: 100%;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    clear: both;
+}
+.index-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+ul#atoz {
+    background-color: #fbfbfb;
+    margin: 0px auto;
+    text-align: center;
+}
+ul#atoz li {
+    list-style: none;
+    display: inline-block;
+    min-width: 20px;
+    width: 2.5%;
+    padding: 2px 9px;
+    margin: 5px;
+    text-align: center;
+}
+.az-search {
+    width: 100%;
+    margin: 25px 0px;
+    padding: 40px;
+    background: url('/wp-content/themes/sau-cce/images/diagonal-noise.png') repeat;
+}
+.az-search input {
+    width: 50%;
+    margin-left: 25%;
+    line-height: 38px;
+    font-size: 26px;
+}
+
+/** Index body **/ 
+
 
 .letter-section {
 	margin: 15px 0px 50px 0px;
