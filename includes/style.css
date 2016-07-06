@@ -79,14 +79,17 @@ ul.sub-list {
 	padding: 0px;
 }
 .hidden-card {
-	height: 0px;
+	display:none;
 	margin-top: 5px;
-	/* padding: 10px; */
+	padding: 10px;
 	border: rgba(162, 162, 162, 0.36);
 	border-style: solid;
-	z-index: 999;
-	opacity: 0;
-	transition: all 1.5s ease;
+/* 	z-index: 999; */
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	-ms-transition: none;
+	transition: none;
 }
 
 .item-description {
@@ -97,7 +100,7 @@ ul.sub-list {
 	margin-top: 5px;
 }
 
-.item:hover > .hidden-card {
+/*.item:hover > .hidden-card {
 	
 	display:block;
 	position: relative;
@@ -105,4 +108,4 @@ ul.sub-list {
 	height: auto;
 	transition: all 1.5s ease;
 	
-}
+}*/

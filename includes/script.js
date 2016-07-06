@@ -52,3 +52,11 @@ jQuery(document).ready(function() {
 });
 
 new WOW().init();
+
+// slide toggle for items
+
+jQuery(document).ready(function(){
+    jQuery(".item-title").hover(function(){
+        jQuery(this).siblings(".hidden-card").slideToggle("slow");
+    });
+});
