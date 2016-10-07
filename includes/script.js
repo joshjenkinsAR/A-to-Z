@@ -56,7 +56,8 @@ new WOW().init();
 // slide toggle for items
 
 jQuery(document).ready(function(){
-    jQuery(".item").hover(function(){
-        jQuery(this).children(".hidden-card").stop().slideToggle("slow");
+    jQuery(".plus-icon").click(function(){
+		jQuery(this).toggleClass("open");
+        jQuery(this).siblings(".hidden-card").toggleClass("open");
     });
 });

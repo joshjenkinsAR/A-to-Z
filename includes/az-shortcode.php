@@ -45,7 +45,7 @@ $terms = get_terms( 'alpha' );
 			<div class="az-search"><form id="live-search" class="styled" action="" method="post">
 			<fieldset><input id="filter" class="text-input" type="text" value="" placeholder="Type here and filter results below..." /></fieldset>
 			</form></div>
-		   <div id="az-index" class="wow fadeInUp">
+		   <div id="az-index">
 			<?php 	
 			foreach ( $terms as $term ) {
 			
@@ -77,14 +77,15 @@ $terms = get_terms( 'alpha' );
 				while ( $query->have_posts() ) : $query->the_post();
 				 ?>
 					<li class="item">
-						<a href="<?php the_permalink();?>" class="item-title"><?php the_title(); ?></a>
+						<div class="plus-icon"><i class="fa fa-plus"></i></div> <a href="<?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?>" class="item-title"><?php the_title(); ?></a>
 						<div class="hidden-card">
 							<div class="item-description"><?php echo get_post_meta( get_the_ID(), 'item_description', true ); ?></div>
 							<div class="item-location"><?php echo get_post_meta( get_the_ID(), 'item_location', true ); ?></div>
 							<div class="item-link">
-								<a><?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?></a>
+								<a class="button" href="<?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?>">Visit Site</a>
 							</div>
 						</div>
+						
 					</li>
            		<?php 
 				endwhile;
