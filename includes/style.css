@@ -39,6 +39,7 @@ ul#atoz li {
     margin-left: 10%;
 }
 
+
 /** Index body **/ 
 
 
@@ -162,6 +163,11 @@ ul.sub-list {
     width: 100%;
     margin-left: 0px;
 }
+
+.az-search{
+	width: 90%;
+}
+
 #az-index ul li.item {
     margin-bottom: 0px;
 }
@@ -177,5 +183,8 @@ ul.sub-list {
 	}
 	.item-holder {
 		width: 100%;
+	}
+	.az-search{
+	width: 100%;
 	}
 }
