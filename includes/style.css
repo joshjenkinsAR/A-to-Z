@@ -75,9 +75,6 @@ ul.sub-list {
     float: left;
     margin-left: 2%;
 }
-.wow {
-	visibility: hidden;
-}
 #az-index ul li.item {
 	margin-bottom: 15px;
 	list-style: none;
@@ -113,12 +110,12 @@ ul.sub-list {
 .item-link {
 	margin-top: 5px;
 }
-.open i.fa.fa-plus {
+.open i.fa.fa-plus-square-o {
     transform: rotate(45deg);
     transition: all .5s ease;
 	color: #333;
 }
-i.fa.fa-plus {
+i.fa.fa-plus-square-o {
     transform: rotate(0deg);
     transition: all .5s ease;
 	color: #999;
@@ -126,7 +123,7 @@ i.fa.fa-plus {
 
 .plus-icon {
     display: inline-block;
-    padding-right: 15px;
+    margin-left: 13px;
 }
 .plus-icon i.fa:hover {
     color: #484848;

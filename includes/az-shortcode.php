@@ -2,10 +2,7 @@
 function az_scripts_styles() {
     wp_register_style( 'shortcode-style', plugins_url('style.css', __FILE__));
 	wp_enqueue_style( 'shortcode-style' );
-	wp_enqueue_script( 'az-script', plugins_url('script.js', __FILE__), array('jquery', 'wow-js'), false );
-	wp_enqueue_script('wow-js', get_stylesheet_directory_uri() .'/js/wow.min.js', false);
-	wp_register_style( 'animate-css', get_stylesheet_directory_uri() .'/js/animate.css');
-	wp_enqueue_style( 'animate-css' );
+	wp_enqueue_script( 'az-script', plugins_url('script.js', __FILE__), array('jquery'), false );
 }
 add_action( 'wp_enqueue_scripts', 'az_scripts_styles' );
 
@@ -53,6 +50,7 @@ $terms = get_terms( 'alpha' );
 			
 			$options = array(
 				'post_type' => 'item',
+				'nopaging' => true,
 				'orderby' => 'title',
 				'order'   => 'ASC',
 				'tax_query' => array (
@@ -77,7 +75,9 @@ $terms = get_terms( 'alpha' );
 				while ( $query->have_posts() ) : $query->the_post();
 				 ?>
 					<li class="item">
-						<div class="plus-icon"><i class="fa fa-plus"></i></div> <a href="<?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?>" class="item-title"><?php the_title(); ?></a>
+						<a href="<?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?>" class="item-title"><?php the_title(); ?></a> <?php 
+						$item_description = get_post_meta( get_the_ID(), 'item_description', true);  
+					if($item_description !== '') { ?><div class="plus-icon"><i class="fa fa-plus-square-o"></i></div>
 						<div class="hidden-card">
 							<div class="item-description"><?php echo get_post_meta( get_the_ID(), 'item_description', true ); ?></div>
 							<div class="item-location"><?php echo get_post_meta( get_the_ID(), 'item_location', true ); ?></div>
@@ -85,7 +85,7 @@ $terms = get_terms( 'alpha' );
 								<a class="button" href="<?php echo get_post_meta( get_the_ID(), 'item_link', true ); ?>">Visit Site</a>
 							</div>
 						</div>
-						
+					<?php } ; ?>
 					</li>
            		<?php 
 				endwhile;

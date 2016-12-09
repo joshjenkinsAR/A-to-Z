@@ -51,7 +51,6 @@ jQuery(document).ready(function() {
     });
 });
 
-new WOW().init();
 
 // slide toggle for items
 
