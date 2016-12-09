@@ -29,7 +29,10 @@ ul#atoz li {
     width: 70%;
     margin: 25px auto;
     border-radius: 5px;
-    padding: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
     background: url('/wp-content/themes/sau-cce/images/diagonal-noise.png') repeat;
 }
 .az-search input {
@@ -37,6 +40,9 @@ ul#atoz li {
     line-height: 38px;
     font-size: 22px;
     margin-left: 10%;
+}
+#live-search fieldset {
+	border: none;
 }
 
 
@@ -197,5 +203,14 @@ ul.sub-list {
 	}
 	.az-search{
 	width: 100%;
+	padding: 0px;
+	}
+	.az-search input {
+	width: 100%;
+	margin-left: 0%;
+	font-size: 18px;
+	}
+	#live-search fieldset {
+	margin: none;
 	}
 }
