@@ -51,6 +51,8 @@ jQuery(document).ready(function() {
     });
 });
 
+//Fixed header anchor link scroll
+window.addEventListener("hashchange", function() { scrollBy(0, -100) })
 
 // slide toggle for items
 

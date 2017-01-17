@@ -40,8 +40,16 @@ $terms = get_terms( 'alpha' );
 		</ul>
 		</div>
 			<div class="az-search"><form id="live-search" class="styled" action="" method="post">
-			<fieldset><input id="filter" class="text-input" type="text" value="" placeholder="Type here and filter results below..." /></fieldset>
+			<fieldset><input id="filter" class="text-input" type="text" value="" placeholder="Type here and filter results below..." autofocus /></fieldset>
 			</form></div>
+			<script type="text/javascript">
+jQuery(document).ready(function(){
+function SetFocus() {
+var input = document.getElementById("live-search");
+input.focus();
+}
+});
+</script>
 		   <div id="az-index">
 			<?php 	
 			foreach ( $terms as $term ) {
