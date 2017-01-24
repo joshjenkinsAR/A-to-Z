@@ -203,7 +203,8 @@ ul.sub-list {
 	}
 	.az-search{
 	width: 100%;
-	padding: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
 	}
 	.az-search input {
 	width: 100%;
