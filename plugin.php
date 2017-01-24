@@ -5,7 +5,7 @@ Description: Creates an Index system with a custom item post type and shortcodes
 Plugin URI: https://github.com/joshjenkinsAR/A-to-Z
 Author: Josh Jenkins and John Wilson Impson
 License: GPL
-Version: 1.0.4
+Version: 1.1
 GitHub Plugin URI: https://github.com/joshjenkinsAR/A-to-Z
 GitHub Branch: master
 */
