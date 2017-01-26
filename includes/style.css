@@ -203,8 +203,7 @@ ul.sub-list {
 	}
 	.az-search{
 	width: 100%;
-	padding-left: 0px;
-	padding-right: 0px;
+	padding: none;
 	}
 	.az-search input {
 	width: 100%;
@@ -214,4 +213,24 @@ ul.sub-list {
 	#live-search fieldset {
 	margin: none;
 	}
+	input#filter{
+		margin-left: 0px;
+		width: 100%;
+		font-size: 15px;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
